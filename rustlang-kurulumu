@@ -1,0 +1,89 @@
+# Kurulum
+
+İlk adım Rust'ı  kurmaktır. Rust sürümlerini ve ilgili araçları yönetmek için bir komut satırı aracı olan rustup aracılığıyla Rust'u indireceğiz. İndirmek için bir internet bağlantısına ihtiyacınız olacak.
+
+Aşağıdaki adımlar, Rust derleyicisinin en son kararlı sürümünü yükler. Rust'un kararlılık garantileri, derleyen kitaptaki tüm örneklerin daha yeni Rust sürümleriyle derlemeye devam etmesini sağlar. Çıktı, sürümler arasında biraz farklılık gösterebilir çünkü Rust genellikle hata mesajlarını ve uyarıları iyileştirir. Başka bir deyişle, bu adımları kullanarak yüklediğiniz Rust'un daha yeni ve kararlı sürümleri, bu kitabın içeriğinde beklendiği gibi çalışmalıdır.
+
+# Rust'u Linux veya Macos'a yükleme
+
+Linux veya macOS kullanıyorsanız bir terminal açın ve aşağıdaki komutu girin:
+ 
+```
+$ curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
+```
+
+Komut bir komut dosyası indirir ve Rust'un en son kararlı sürümünü yükleyen rust up aracının kurulumunu başlatır. Parolanız istenebilir. Yükleme başarılı olursa, aşağıdaki satır görünecektir: 
+
+```
+Rust is installed now. Great!
+```
+
+Rust'un derlenmiş çıktılarını tek bir dosyaya birleştirmek için kullandığı bir program olan bir bağlayıcıya da ihtiyacınız olacak. Muhtemelen zaten bir tane var. Bağlayıcı hataları alırsanız, genellikle bir bağlayıcı içeren bir C derleyicisi yüklemelisiniz. Bir C derleyicisi de yararlıdır çünkü bazı yaygın Rust paketleri C koduna bağlıdır ve bir C derleyicisine ihtiyaç duyacaktır.
+
+Macos'ta çalıştırarak bir C derleyicisi edinebilirsiniz: 
+
+```
+$ xcode-select --install
+```
+
+Linux kullanıcıları, dağıtımlarının belgelerine göre genellikle GCC veya Clang'ı yüklemelidir. Örneğin, Ubuntu kullanıyorsanız, build-essential paketini yükleyebilirsiniz.
+
+# Windows ```rustup``` Kurulumu 
+
+Windows'ta şu adrese gidin https://www.rust-lang.org/tools/install ve Rust takma talimatlarını izleyin. Yüklemenin bir noktasında, Visual Studio 2013 veya sonraki sürümleri için MSVC oluşturma araçlarına da ihtiyacınız olacağını açıklayan bir ileti alırsınız.
+
+Oluşturma araçlarını edinmek için Visual Studio 2022'yi yüklemeniz gerekir. Hangi iş yüklerinin yükleneceği sorulduğunda şunları ekleyin:
+
+”C ++ ile Masaüstü Geliştirme"
+Windows 10 veya 11 SDK'sı
+İngilizce dil paketi bileşeni, seçtiğiniz diğer dil paketleriyle birlikte
+Bu kitabın geri kalanı, her iki cmd'de de çalışan komutları kullanır.exe ve PowerShell. Belirli farklılıklar varsa, hangisini kullanacağımızı açıklayacağız.
+
+# Arıza 
+
+Rust'un doğru takılıp takılmadığını kontrol etmek için bir kabuk açın ve bu satırı girin: 
+
+```
+$ rustc --version
+```
+Yayımlanan en son kararlı sürümün sürüm numarasını, taahhüt karmasını ve taahhüt tarihini aşağıdaki biçimde görmelisiniz:
+
+```
+rustic x.y.z (abc abc abc yyyy-aa-gg)
+```
+Bu bilgiyi görürseniz, Rust'u başarıyla yüklediniz! Bu bilgiyi görmüyorsanız, Rust'un %PATH% sistem değişkeninizde aşağıdaki gibi olup olmadığını kontrol edin.
+
+Windows cmd'de şunları kullanın:
+
+```
+> echo %PATH%
+```
+Powershell'de şunları kullanın:
+
+```
+> echo $env:Path
+```
+Linux ve Macos'ta şunları kullanın:
+```
+$ echo $PATH
+```
+
+Hepsi doğruysa ve Rust hala çalışmıyorsa, yardım alabileceğiniz birkaç yer var. Topluluk sayfasındaki diğer Kabuklularla (kendimiz dediğimiz aptalca bir takma ad) nasıl iletişime geçeceğinizi öğrenin.
+
+Güncelleme ve Kaldırma
+Rust, rust up aracılığıyla yüklendikten sonra, yeni yayınlanan bir sürüme güncellemek kolaydır. Kabuğunuzdan aşağıdaki güncelleme komut dosyasını çalıştırın:
+
+```
+$ rustup update
+```
+
+Rust ve rust up'ı kaldırmak için kabuğunuzdan aşağıdaki kaldırma komut dosyasını çalıştırın:
+
+```
+$ rustup self uninstall
+```
+
+Yerel Belgeler
+Rust'un kurulumu, çevrimdışı okuyabilmeniz için belgelerin yerel bir kopyasını da içerir. Tarayıcınızdaki yerel belgeleri açmak için rust up doc'u çalıştırın.
+
+Standart kitaplık tarafından bir tür veya işlev sağlandığında ve ne yaptığından veya nasıl kullanılacağından emin değilseniz, öğrenmek için uygulama programlama arabirimi (API) belgelerini kullanın!
